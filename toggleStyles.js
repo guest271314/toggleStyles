@@ -41,7 +41,7 @@ $('html').html($('html').data('styleReset'))
 console.log($('html').data('styleStatus'));
 };
 
-/* When jQuery is ready, log success. Keyboard usage: Keydown space bar. */
+/* When jQuery is ready, log success. Keyboard usage: Keydown space bar toggles styles on or off. */
 (function toggleStyle(){
 setTimeout(function(){
 if(jQuery){
