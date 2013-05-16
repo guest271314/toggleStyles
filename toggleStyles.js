@@ -3,13 +3,13 @@ Toggle CSS on or off in browser.
 Reference: http://superuser.com/questions/447269/is-there-any-way-to-view-a-webpage-without-styles-in-chrome */
 /* Request jQuery, log success. */
 (function() {
-    var rs = document.createElement('script');
-    rs.type = 'text/javascript';
-    rs.src = ('http:' == document.location.protocol ? 'http://code.jquery.com/jquery-2.0.0.min.js': 'jquery-2.0.0.min.js');
-    var jq = document.getElementsByTagName('script')[0];
-    jq.parentNode.insertBefore(rs, jq);
+    var jq = document.createElement('script');
+    jq.type = 'text/javascript';
     jq.id = 'jq';
+    jq.src = ('http:' == document.location.protocol ? 'http://code.jquery.com/jquery-2.0.0.min.js': 'jquery-2.0.0.min.js');
     jq.dataset[status] = 'jquery ready';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(s, jq);
     console.log(jq.dataset[status]);
     document.getElementsByTagName('html')[0].dataset[status] = 'styles on';
 })();
