@@ -1,7 +1,7 @@
 /* toggleStyles.js (c)2013 guest271314 http://guest271314.com http://www.opensource.org/licenses/MIT
 Toggle CSS on or off in browser.
 Reference: http://superuser.com/questions/447269/is-there-any-way-to-view-a-webpage-without-styles-in-chrome */
-/* Load jQuery. */
+/* Request jQuery, log success. */
 (function() {
     var rs = document.createElement('script');
     rs.type = 'text/javascript';
