@@ -20,8 +20,8 @@ function clearStyle() {
     var clear = '';
     var off = 'styles off';
     $('style').html(clear);
-    $('*').attr('style', clear);
     $('link[rel=stylesheet]').attr('href', clear);
+    $('*').attr('style',clear);
     $('html').data('styleStatus', off);
     $('html').get(0).dataset[0] = off;
     $('.off').attr('title', $('html').get(0).dataset[0]);
