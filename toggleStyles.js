@@ -43,8 +43,8 @@ $('html').data('styleReset',_clone);
 $('html').data('styleStatus','styles on');
 console.log($('html').data('styleStatus'));
 $('body').on('keydown',function(c,d){
-
-if (c.keyCode == 32){
+c = {keyCode:32};
+if (c){
 d = ('styles on' == $('html').data('styleStatus') ? clearStyle() : resetStyle());
 return d};
 }); 
