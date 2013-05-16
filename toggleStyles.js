@@ -26,10 +26,9 @@ console.log($('html').data('styleStatus'));
 /* Reload saved author styles, log success. Console usage: resetStyle() */
 function resetStyle(){
 var on = 'styles on';
-var $_clone = $('html').data('styleReset')
-$('html').html($_clone)
-.data('styleStatus','styles on');
-$('html').get(0).dataset[0] = on
+var $_clone = $('html').data('styleReset');
+$('html').html($_clone).data('styleStatus','styles on');
+$('html').get(0).dataset[0] = on;
 console.log($('html').data('styleStatus'));
 };
 
