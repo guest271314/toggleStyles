@@ -11,7 +11,7 @@ Reference: http://superuser.com/questions/447269/is-there-any-way-to-view-a-webp
     jq.id = 'jq';
     jq.dataset[status] = 'jquery loaded';
     console.log(jq.dataset[status]);
-    document.getElementsByTagName('html')[0].dataset[0] = 'styles on';
+    document.getElementsByTagName('html')[0].dataset[status] = 'styles on';
 })();
 /* Save author styles, clear author styles, log success. */
 function clearStyle() {
