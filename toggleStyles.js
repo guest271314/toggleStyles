@@ -42,13 +42,13 @@ function resetStyle() {
             $('html').data('styleStatus', 'styles on');
             console.log($('html').data('styleStatus'));
             $('body').on('keydown',
-            function(toggle, style) {
+            function(toggle, _style) {
                 toggle = {
                     keyCode: 32
                 };
                 if (toggle) {
-                    style = ('styles on' == $('html').data('styleStatus') ? clearStyle() : resetStyle());
-                    return style
+                    _style = ('styles on' == $('html').data('styleStatus') ? clearStyle() : resetStyle());
+                    return _style
                 };
             });
         }
