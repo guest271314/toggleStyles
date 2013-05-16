@@ -31,7 +31,7 @@ function clearStyle() {
 function resetStyle() {
     var on = 'styles on';
     var $_clone = $('html').data('styleReset');
-    $('html').html($_clone).data('styleStatus', 'styles on');
+    $('html').html($_clone).data('styleStatus', on);
     $('html').get(0).dataset[status] = on;
     console.log($('html').data('styleStatus'));
 };
