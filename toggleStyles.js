@@ -20,7 +20,6 @@ $('*').attr('style',clear);
 $('link[rel=stylesheet]').attr('href',clear);
 $('html').data('styleStatus',off);
 $('html').get(0).dataset[0] = off;
-
 console.log($('html').data('styleStatus'));
 };
 
