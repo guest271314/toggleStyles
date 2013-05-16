@@ -13,7 +13,7 @@ Reference: http://superuser.com/questions/447269/is-there-any-way-to-view-a-webp
     console.log(jq.dataset[status]);
     document.getElementsByTagName('html')[0].dataset[status] = 'styles on';
 })();
-/* Save author styles, clear author styles, log success. */
+/* Save author styles, clear author styles, log success. Console usage: clearStyle() */
 function clearStyle() {
     var $clone = $('html').contents().clone(true);
     $('html').data('styleReset', $clone);
