@@ -27,7 +27,7 @@ function clearStyle() {
     $('.off').attr('title', $('html').get(0).dataset[0]);
     console.log($('html').data('styleStatus'));
 };
-/* Load saved author styles, log success. */
+/* Reload saved author styles, log success. Console usage: resetStyle() */
 function resetStyle() {
     var on = 'styles on';
     var $_clone = $('html').data('styleReset');
@@ -35,7 +35,7 @@ function resetStyle() {
     $('html').get(0).dataset[0] = on;
     console.log($('html').data('styleStatus'));
 };
-/* When jQuery is loaded, log success. Set spacebar to toggle clearStyle and resetStyle. */
+/* When jQuery is ready, save author styles, log success. Keyboard usage: Keydown space bar toggles styles on or off. */
 (function toggleStyle() {
     setTimeout(function() {
         if (jQuery) {
