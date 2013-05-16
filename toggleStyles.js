@@ -23,7 +23,7 @@ function clearStyle() {
     $('link[rel=stylesheet]').attr('href', clear);
     $('*').attr('style',clear);
     $('html').data('styleStatus', off);
-    $('html').get(0).dataset[0] = off;
+    $('html').get(0).dataset[status] = off;
     $('.off').attr('title', $('html').get(0).dataset[0]);
     console.log($('html').data('styleStatus'));
 };
@@ -32,7 +32,7 @@ function resetStyle() {
     var on = 'styles on';
     var $_clone = $('html').data('styleReset');
     $('html').html($_clone).data('styleStatus', 'styles on');
-    $('html').get(0).dataset[0] = on;
+    $('html').get(0).dataset[status] = on;
     console.log($('html').data('styleStatus'));
 };
 /* When jQuery is ready, save author styles, log success. Keyboard usage: Keydown space bar toggles styles on or off. */
