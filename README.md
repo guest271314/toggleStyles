@@ -14,5 +14,5 @@ Toggle styles off in browser.
 #####Usage
 Console.
 
-####Reference
-[Is there any way to view a web page without styles in Chrome?](http://superuser.com/questions/447269/is-there-any-way-to-view-a-webpage-without-styles-in-chrmoe)
+#####Reference
+http://superuser.com/questions/447269/is-there-any-way-to-view-a-webpage-without-styles-in-chrmoe
