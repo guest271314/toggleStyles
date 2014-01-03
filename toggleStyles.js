@@ -28,11 +28,6 @@
 /* toggleStyles.js */
 function toggleStyles() {
     'use strict';
-    /* Console helper (optional) */
-    if (!window.console) {
-        window.console = {log: function() {
-            }};
-    };
     /* Save author styles, clear author styles, log success. Usage: clearStyle() */
     function clearStyle() {
         var $clone = $('html').contents().clone(true);
