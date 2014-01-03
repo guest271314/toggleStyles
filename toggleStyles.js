@@ -1,59 +1,82 @@
-/*! toggleStyles.js (c)2013 guest271314 http://guest271314.com http://www.opensource.org/licenses/MIT
+/*! toggleStyles.js (c) 2013, 2014 guest271314 http://guest271314.com 
 * Toggle styles on or off in browser.
 * Reference: http://superuser.com/questions/447269/is-there-any-way-to-view-a-webpage-without-styles-in-chrome 
-* Updated: 2013-12-08
+* License: MIT http://www.opensource.org/licenses/MIT
+* Updated: 2014-01-02
 */
-/* Request jQuery, log success. */
-(function() {
-    var jq = document.createElement('script');
-    jq.type = 'text/javascript';
-    jq.id = 'jq';
-    jq.src = ('http:' == document.location.protocol ? 'http://code.jquery.com/jquery-1.10.1.min.js': 'jquery-1.10.1.min.js');
-    jq.dataset[status] = 'jquery ready';
-    var s = document.getElementsByTagName('head')[0];
-    s.appendChild(jq);
-    console.log(jq.dataset[status]);
-    document.getElementsByTagName('html')[0].dataset[status] = 'styles on';
+
+/* Request jQuery, log success (optional) */
+(function js() {
+    callback = setTimeout(function() {
+        toggleStyles()
+    }, 5000);    
+    var q = false;
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = 'true';
+    script.id = 'jq';
+    script.src = 'https://code.jquery.com/jquery-1.10.2.min.js';
+    script.onload = script.onreadystatechange = function() {
+        q = ((!s && (!this.readyState || this.readyState == 'complete')) ? true : false);        
+        document.getElementsByTagName('html')[0].dataset.progress = 'jquery ' + window.jQuery().jquery;+ ' ready';        
+        return ((q && !!jQuery) === true ? callback : js())    
+    };
+    var head = document.getElementsByTagName('head')[0];
+    head.insertBefore(script, head.firstChild);    
+    return String('loading ' + script.src.substr(24, 20) + ' at ' + (new Date()).toJSON())
+
 })();
-/* Save author styles, clear author styles, log success. Console usage: clearStyle() */
-function clearStyle() {
-    var $clone = $('html').contents().clone(true);
-    $('html').data('styleReset', $clone);
-    var clear = '';
-    var off = 'styles off';
-    $('style').html(clear);
-    $('link[rel=stylesheet]').attr('href', clear);
-    $('*').attr('style',clear);
-    $('html').data('styleStatus', off);
-    $('html').get(0).dataset[status] = off;
-    $('.off').attr('title', $('html').get(0).dataset[0]);
-    console.log($('html').data('styleStatus'));
+
+function toggleStyles() {
+    'use strict';
+    /* Console helper (optional) */
+    if (!window.console) {
+        window.console = {log: function() {
+            }};
+    };
+    /* Save author styles, clear author styles, log success. Usage: clearStyle() */
+    function clearStyle() {
+        var $clone = $('html').contents().clone(true);
+        $('html').data('styleReset', $clone);
+        var clear = '';
+        var off = 'styles off';
+        $('style').html(clear);
+        $('link[rel=stylesheet]').attr('href', clear);
+        $('*').attr('style', clear);
+        $('html').data('styleStatus', off);
+        $('html')[0].dataset.status = off;
+    /* Log style status at console (optioanl) */
+        window.console.log($('html').data('styleStatus'));
+    }
+    ;
+    /* Reload saved author styles, log success. Usage: resetStyle() */
+    function resetStyle() {
+        var on = 'styles on';
+        var $_clone = $('html').data('styleReset');
+        $('html').html($_clone).data('styleStatus', on);
+        $('html')[0].dataset.status = on;
+    /* Log style status at console (optioanl) */
+        window.console.log($('html').data('styleStatus'));
+    };
+    /* When jQuery is ready, toggle styles. Keyboard usage: Keydown space bar toggles styles on or off (optional) */
+    return (function toggleStyle(callback) {
+        $('html').data('styleStatus', 'styles on');
+        $('html')[0].dataset.status = 'styles on';
+        $('html')[0].dataset.progress = 'jquery ' + window.jQuery().jquery;+ ' ready';
+    /* Log style status at console (optioanl) */
+        window.console.log($('html').data('styleStatus') + ' ' + $('html')[0].dataset.progress);
+        var keys = ('keypress' || 'keydown');
+        $('body').on(keys, 
+        function(toggle, _style) {
+            toggle = {
+                keyCode: 32
+            };
+            if (toggle) {
+                _style = ('styles on' === $('html').data('styleStatus') ? clearStyle() : resetStyle());
+                return _style
+            };
+        });
+        if (callback != undefined) { clearTimeout(callback) };
+        return $('html')[0].dataset.progress
+    }());
 };
-/* Reload saved author styles, log success. Console usage: resetStyle() */
-function resetStyle() {
-    var on = 'styles on';
-    var $_clone = $('html').data('styleReset');
-    $('html').html($_clone).data('styleStatus', on);
-    $('html').get(0).dataset[status] = on;
-    console.log($('html').data('styleStatus'));
-};
-/* When jQuery is ready, save author styles, log success. Keyboard usage: Keydown space bar toggles styles on or off. */
-(function toggleStyle() {
-    setTimeout(function() {
-        if (jQuery) {
-            $('html').data('styleStatus', 'styles on');
-            console.log($('html').data('styleStatus'));
-            $('body').on('keydown',
-            function(toggle, _style) {
-                toggle = {
-                    keyCode: 32
-                };
-                if (toggle) {
-                    _style = ('styles on' == $('html').data('styleStatus') ? clearStyle() : resetStyle());
-                    return _style
-                };
-            });
-        }
-    },
-    1500);
-})();
