@@ -6,7 +6,7 @@
 */
 
 /* Request jQuery, log success (optional) */
-(function js() {
+(function j() {
     callback = setTimeout(function() {
         toggleStyles()
     }, 5000);    
@@ -19,14 +19,13 @@
     script.onload = script.onreadystatechange = function() {
         q = ((!s && (!this.readyState || this.readyState == 'complete')) ? true : false);        
         document.getElementsByTagName('html')[0].dataset.progress = 'jquery ' + window.jQuery().jquery;+ ' ready';        
-        return ((q && !!jQuery) === true ? callback : js())    
+        return ((q && !!jQuery) === true ? callback : j())    
     };
     var head = document.getElementsByTagName('head')[0];
     head.insertBefore(script, head.firstChild);    
-    return String('loading ' + script.src.substr(24, 20) + ' at ' + (new Date()).toJSON())
-
+    return String('loading ' + script.src.substr(24, 20) + ' at ' + (new Date()).toJSON())
 })();
-
+/* toggleStyles.js */
 function toggleStyles() {
     'use strict';
     /* Console helper (optional) */
