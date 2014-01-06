@@ -12,7 +12,7 @@
     return !((check === undefined) ? (function _callback() {
         callback = setTimeout(function() {
             return ((document.getElementById('jq') && window.jQuery) ? toggleStyles() : callback)
-        }, 1000);
+        }, 2500);
         url = 'https://code.jquery.com/jquery-1.10.2.min.js';
         id = 'jq';
         var status = false;
