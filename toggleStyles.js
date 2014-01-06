@@ -2,7 +2,7 @@
 * Toggle styles on or off in browser.
 * License: MIT http://www.opensource.org/licenses/MIT
 * Reference: http://superuser.com/questions/447269/is-there-any-way-to-view-a-webpage-without-styles-in-chrome 
-* Depends: jQuery http:jquery.com
+* Depends: jQuery http://jquery.com
 * Updated: 2014-01-05
 */
 
