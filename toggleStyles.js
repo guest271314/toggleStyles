@@ -80,5 +80,5 @@ function toggleStyles($) {
                 return _style
             };
         });
-    })()
+    })();
 };
