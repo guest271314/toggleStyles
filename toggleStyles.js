@@ -32,7 +32,7 @@
     }()) : 
     /* When jQuery is defined, call toggleStyles() */
     toggleStyles());
-})();
+}());
 
     /*! toggleStyles.js (c) 2014 guest271314 MIT License 
         Usage: toggleStyles() */
@@ -80,5 +80,5 @@ function toggleStyles($) {
                 return _style
             };
         });
-    })();
+    }());
 };
