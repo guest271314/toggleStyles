@@ -2,26 +2,26 @@
 * Toggle styles on or off in browser.
 * License: MIT http://www.opensource.org/licenses/MIT
 * Reference: http://superuser.com/questions/447269/is-there-any-way-to-view-a-webpage-without-styles-in-chrome 
+* Depends: jQuery http:jquery.com
 * Updated: 2014-01-05
 */
 
     /* If jQuery not defined, request jquery-1.10.2.min.js from code.jquery.com, 
        log success, call toggleStyles() */
-(function jq(url, id, callback, check) {
+(function jq(callback, check) {
     check = window.jQuery;
     return !((check === undefined) ? (function _callback() {
         callback = setTimeout(function() {
             return ((document.getElementById('jq') && window.jQuery) ? toggleStyles() : callback)
         }, 3000);
         url = 'https://code.jquery.com/jquery-1.10.2.min.js';
-        id = 'jq';
         var status = false;
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
         script.type = 'application/javascript';
         script.async = 'async';
         script.jsonp = 'callback';
-        script.id = id;
+        script.id = 'jq';
         script.src = url + '?callback='
         script.onload = script.onreadystatechange = function() {
             status = ((!status && (!this.readyState || this.readyState == 'complete')) ? true : false);
