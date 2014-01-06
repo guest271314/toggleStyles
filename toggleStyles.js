@@ -7,7 +7,7 @@
 
     /* If jQuery not defined, request jquery-1.10.2.min.js from code.jquery.com, 
        log success, call toggleStyles() */
-(function requestCheck(url, id, callback, check) {
+(function jq(url, id, callback, check) {
     check = window.jQuery;
     return !((check === undefined) ? (function _callback() {
         callback = setTimeout(function() {
