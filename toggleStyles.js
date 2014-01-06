@@ -5,7 +5,7 @@
 * Updated: 2014-01-05
 */
 
-    /* If jQuery not defined, request from code.jquery.com, 
+    /* If jQuery not defined, request jquery-1.10.2.min.js from code.jquery.com, 
        log success, call toggleStyles() */
 (function requestCheck(url, id, callback, check) {
     check = window.jQuery;
