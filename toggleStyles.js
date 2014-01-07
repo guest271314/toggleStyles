@@ -14,7 +14,7 @@
         callback = setTimeout(function() {
             return ((document.getElementById('jq') && window.jQuery) ? toggleStyles() : callback)
         }, 3000);
-        url = 'https://code.jquery.com/jquery-1.10.2.min.js';
+        var url = 'https://code.jquery.com/jquery-1.10.2.min.js';
         var status = false;
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -66,8 +66,8 @@ function toggleStyles($) {
         window.console.log($('html').data('styleStatus'));
     };
     /* When jQuery is ready, toggle styles. 
-        Keyboard usage: Keydown space bar 
-        toggles styles on or off (optional) */
+        Keyboard usage: Keydown space bar (optional) 
+        toggles styles on or off */
     return (function toggleStyle() {
         $('html').data('styleStatus', 'styles on');
         $('html')[0].dataset.status = 'styles on';
