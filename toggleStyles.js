@@ -22,7 +22,7 @@
         script.async = 'async';
         script.jsonp = 'callback';
         script.id = 'jq';
-        script.src = url + '?callback='
+        script.src = url + '?callback=';
         script.onload = script.onreadystatechange = function() {
             status = ((!status && (!this.readyState || this.readyState == 'complete')) ? true : false);
             return callback
