@@ -1,4 +1,4 @@
-/*! toggleStyles.js (c) 2013, 2014 guest271314 http://guest271314.com 
+ /*! toggleStyles.js (c) 2013, 2014 guest271314 http://guest271314.com 
 * Toggle styles on or off in browser.
 * License: MIT http://www.opensource.org/licenses/MIT
 * Reference: http://superuser.com/questions/447269/is-there-any-way-to-view-a-webpage-without-styles-in-chrome 
@@ -6,7 +6,7 @@
 * Updated: 2014-01-12
 */
 
-    /* If jQuery not defined, request jquery-1.10.2.min.js from code.jquery.com, 
+/* If jQuery not defined, request jquery-1.10.2.min.js from code.jquery.com, 
        log success, call toggleStyles() */
 (function jq(callback, check) {
     check = window.jQuery;
@@ -34,7 +34,7 @@
     toggleStyles());
 }());
 
-    /*! toggleStyles.js (c) 2014 guest271314 MIT License 
+/*! toggleStyles.js (c) 2014 guest271314 MIT License 
         Usage: toggleStyles() */
 function toggleStyles($) {
     $ = window.jQuery;
@@ -52,7 +52,7 @@ function toggleStyles($) {
         $('*').attr('style', clear);
         $('html').data('styleStatus', off);
         $('html')[0].dataset.status = off;
-    /* Log style status at console (optioanl) */
+        /* Log style status at console (optioanl) */
         window.console.log($('html').data('styleStatus'));
     };
     /* Reload saved author styles, log success. 
@@ -62,7 +62,7 @@ function toggleStyles($) {
         var $_clone = $('html').data('styleReset');
         $('html').html($_clone).data('styleStatus', on);
         $('html')[0].dataset.status = on;
-    /* Log style status at console (optioanl) */
+        /* Log style status at console (optioanl) */
         window.console.log($('html').data('styleStatus'));
     };
     /* When jQuery is ready, toggle styles. 
@@ -71,7 +71,7 @@ function toggleStyles($) {
     return (function toggleStyle() {
         $('html').data('styleStatus', 'styles on');
         $('html')[0].dataset.status = 'styles on';
-    /* Log style status at console (optioanl) */
+        /* Log style status at console (optioanl) */
         window.console.log($('html').data('styleStatus') + ' ' + $('html')[0].dataset.progress);
         $('body').on('keydown', 
         function(toggle, _style) {
