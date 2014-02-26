@@ -3,7 +3,7 @@
 * License: MIT http://www.opensource.org/licenses/MIT
 * Reference: http://superuser.com/questions/447269/is-there-any-way-to-view-a-webpage-without-styles-in-chrome 
 * Depends: jQuery http://jquery.com
-* Updated: 2014-01-12
+* Updated: 2014-02-25
 */
 
 /* If jQuery not defined, request jquery-1.10.2.min.js from code.jquery.com, 
@@ -38,6 +38,7 @@
         Usage: toggleStyles() */
 function toggleStyles($) {
     $ = window.jQuery;
+    $('html')[0].dataset.description = 'toggleStyles.js Copyright (C) 2013, 2014 guest271314 http://guest271314.com https://github.com/guest271314/toggleStyles\nToggle CSS on or off in browser\n𝗦𝗛𝗜𝗙𝗧 toggles styles on or off';
     $('html')[0].dataset.progress = 'jquery ' + window.jQuery().jquery + ' ready at ' + (new Date()).toJSON();
 
     /* Save author styles, clear author styles, log success.     
@@ -68,17 +69,19 @@ function toggleStyles($) {
     /* When jQuery is ready, toggle styles. 
         Keyboard usage: Keydown space bar (optional) 
         toggles styles on or off */
-    return (function toggleStyle() {
+    return (function toggleStyle(toggle, _style) {
         $('html').data('styleStatus', 'styles on');
         $('html')[0].dataset.status = 'styles on';
+        $('html')[0].dataset.version = 'chromium extension';
         /* Log style status at console (optioanl) */
-        window.console.log($('html').data('styleStatus') + ' ' + $('html')[0].dataset.progress);
+        window.console.log($('html').data('styleStatus') + ' ' + $('html')[0].dataset.progress
+        +'\n'+ $('html')[0].dataset.description);
         $('body').on('keydown', 
         function(toggle, _style) {
-            if (toggle.which === 32) {
-                _style = ('styles on' === $('html').data('styleStatus') ? clearStyle() : resetStyle());
-                return _style
-            };
-        });
+        /* `Shift` key */
+            if (toggle.which === 16) {       
+                var _style = ('styles on' === $('html').data('styleStatus') ? clearStyle() : resetStyle());
+            }; return _style
+        }); return $('html')[0].dataset.description
     }());
 };
